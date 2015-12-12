@@ -1,7 +1,7 @@
 module.exports = function(Background) {
 
   Background.random = function(cb) {
-    var query = 'SELECT id FROM background ORDER BY RAND() LIMIT 1';
+    var query = 'SELECT id FROM background ORDER BY RANDOM() LIMIT 1';
     Background.dataSource.connector.query(query, cb);
   };
 
@@ -11,6 +11,6 @@ module.exports = function(Background) {
       type: 'string'
     }
   };
-  
+
   Background.remoteMethod('random', randomOptions);
 };
