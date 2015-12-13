@@ -6,7 +6,7 @@ module.exports = function(grunt) {
           dataSource: 'db',
           app: './server/server',
           config: './server/model-config',
-          method: 'automigrate'
+          method: 'autoupdate'
         }
       }
     }
