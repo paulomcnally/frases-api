@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     'loopback_auto': {
-      'db_autoupdate': {
+      'db_automigrate': {
         options: {
           dataSource: 'db',
           app: './server/server',
