@@ -1,6 +1,6 @@
 module.exports = function(Post) {
 
-  Post.feed = function(skip, cb) {
+  Post.feed = function(type, skip, cb) {
     skip = skip || 0;
 
     var query = "SELECT url, type FROM post WHERE type = '" + type + "' ORDER BY RANDOM() LIMIT 10 OFFSET " + skip;
@@ -10,10 +10,16 @@ module.exports = function(Post) {
   };
 
   var feedOptions = {
-    accepts: {
-      arg: 'type',
-      type: 'string'
-    },
+    accepts: [
+      {
+        arg: 'type',
+        type: 'string'
+      },
+      {
+        arg: 'skip',
+        type: 'number'
+      }
+    ],
     http: {
         verb: 'get',
         source: 'query'
